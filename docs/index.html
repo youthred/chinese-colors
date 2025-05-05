@@ -25,12 +25,10 @@
 <script type="text/javascript">
     $.ajax({
         method: 'GET',
-        url: `mdui-v1.0.2/css/mdui.css`,
-        dataType: 'text',
+        // https://cdn.jsdelivr.net/gh/${owner}/${repo}@${branch}${path}
+        url: `https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/color/chinese-colors.json`,
+        dataType: 'json',
         async: false,
-        // headers: {
-        //     'Access-Control-Allow-Origin': '*'
-        // },
         success: function (colors) {
             console.log(colors)
         }
