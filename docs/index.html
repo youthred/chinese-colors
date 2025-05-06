@@ -11,17 +11,20 @@
     </script>
     <style>
         @font-face {
-            font-family: 'ZanHuaXiaoKai';
-            src: url('https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/font/FangZhengZiJiZanHuaXiaoKaiJian.TTF') format('truetype');
+            font-family: 'QingNiaoHuaGuangLiBian';
+            src: url('https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/font/QingNiaoHuaGuangLiBian.ttf') format('truetype');
         }
 
         body {
-            font-family: 'ZanHuaXiaoKai', sans-serif;
+            font-family: 'QingNiaoHuaGuangLiBian', sans-serif;
+            font-size: larger;
         }
     </style>
 </head>
 <body>
-中文 汉字 数字 123123 ASDFDS djhkjljha ！@#￥%……&*（ !@#$%^&*(/*
+
+<div id="colors"></div>
+
 <script type="text/javascript">
     $.ajax({
         method: 'GET',
@@ -30,9 +33,12 @@
         dataType: 'json',
         async: false,
         success: function (colors) {
-            console.log(colors)
+            $('#colors').empty()
+            $.each(colors, function (index, color) {
+                $('#colors').append(`<p style="color: ${color.hex}">${color.name}</p>`)
+            })
         }
-    });
+    })
 </script>
 </body>
 </html>
