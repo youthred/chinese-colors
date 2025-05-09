@@ -30,7 +30,7 @@
 </head>
 <body>
 
-<div id="colors"></div>
+<div id="jieqiList"></div>
 
 <script type="text/javascript">
     $.ajax({
@@ -39,12 +39,15 @@
         url: 'https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/color/jieqi-colors.json',
         dataType: 'json',
         async: false,
-        success: function (colors) {
-            $('#colors').empty()
-            $.each(colors, function (index, color) {
-                // console.log(color)
-                let colorRaw = JSON.stringify(color).replace(/\"/g,"'")
-                $('#colors').append(`<span onclick="changeColor(${colorRaw})" style="background: ${color.hex}">${color.id} ${color.name}</span><br>`)
+        success: function (jieqiList) {
+            $('#jieqiList').empty()
+            $.each(jieqiList, function (index, jieqi) {
+                console.log(jieqi)
+                $('#jieqiList').append(`<p>${jieqi.number} ${jieqi.jieqi}</p>`)
+                $.each(jieqi.colors, function (index, color) {
+                    let colorRaw = JSON.stringify(color).replace(/\"/g,"'")
+                    $('#jieqiList').append(`<span onclick="changeColor(${colorRaw})" style="color: ${color.hex}; background-color: currentColor"><span style="filter: grayscale(1) contrast(999) invert(1);">${color.name} ${color.pinyin}</span></span>`)
+                })
             })
         }
     })
