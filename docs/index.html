@@ -36,7 +36,7 @@
     $.ajax({
         method: 'GET',
         // https://cdn.jsdelivr.net/gh/${owner}/${repo}@${branch}${path}
-        url: `https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/color/chinese-colors.json`,
+        url: 'https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/color/jieqi-colors.json',
         dataType: 'json',
         async: false,
         success: function (colors) {
@@ -50,7 +50,6 @@
     })
 
     function changeColor(color) {
-        console.log(color)
         $('body').css('background-color', color.hex)
     }
 </script>
