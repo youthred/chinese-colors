@@ -10,10 +10,10 @@
         let $ = mdui.$
     </script>
     <style>
-        @font-face {
-            font-family: 'QingNiaoHuaGuangLiBian';
-            src: url('https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/font/QingNiaoHuaGuangLiBian.ttf') format('truetype');
-        }
+        /*@font-face {*/
+        /*    font-family: 'QingNiaoHuaGuangLiBian';*/
+        /*    src: url('https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/font/QingNiaoHuaGuangLiBian.ttf') format('truetype');*/
+        /*}*/
 
         body {
             font-family: KaiTi, sans-serif;
@@ -26,27 +26,87 @@
             -webkit-transition: background-color 0.5s ease-in;
             -o-transition: background-color 0.5s ease-in;
         }
+
+        .font-bg {
+            background-image: url("https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png");
+            background-color: currentColor;
+        }
+
+        .font {
+            filter: grayscale(1) contrast(999) invert(1);
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+
+        .block {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
 <div id="jieqiList"></div>
 
+<div id="jieqiGrid" class="mdui-row-xs-2 mdui-row-sm-4 mdui-row-md-4 mdui-row-lg-8 mdui-row-xl-8 mdui-grid-list mdui-row-gapless"></div>
+
 <script type="text/javascript">
+    // $.ajax({
+    //     method: 'GET',
+    //     // https://cdn.jsdelivr.net/gh/${owner}/${repo}@${branch}${path}
+    //     url: 'https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/color/jieqi-colors-simple.json',
+    //     dataType: 'json',
+    //     async: false,
+    //     success: function (jieqiList) {
+    //         $('#jieqiList').empty()
+    //         $.each(jieqiList, function (index, jieqi) {
+    //             console.log(jieqi)
+    //             $('#jieqiList').append(`<p class="block">${jieqi.number} ${jieqi.jieqi}</p>`)
+    //             $.each(jieqi.colors, function (index, color) {
+    //                 let colorRaw = JSON.stringify(color).replace(/\"/g,"'")
+    //                 // $('#jieqiList').append(`<span onclick="changeColor(${colorRaw})" class="font-bg" style="color: ${color.hex};"><span class="font">${color.name} ${color.pinyin}</span></span><br>`)
+    //                 $('#jieqiList').append(`<span class="mdui-card" onclick="changeColor(${colorRaw})">
+    //                                           <div class="mdui-card-media font-bg mdui-float-left" style="width: 200px; height: 200px; color: ${color.hex}">
+    //                                             <!--<img src="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png"/>-->
+    //                                             <div class="mdui-card-media-covered mdui-card-media-covered-transparent">
+    //                                               <div class="mdui-card-primary font-bg" style="color: ${color.hex};">
+    //                                                 <span class="mdui-card-primary-title font">${color.name}</span>
+    //                                                 <span class="mdui-card-primary-subtitle font">${color.pinyin}</span>
+    //                                               </div>
+    //                                             </div>
+    //                                           </div>
+    //                                         </span>`)
+    //             })
+    //             $('#jieqiList').append('<br>')
+    //         })
+    //     }
+    // })
+
     $.ajax({
         method: 'GET',
         // https://cdn.jsdelivr.net/gh/${owner}/${repo}@${branch}${path}
-        url: 'https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/color/jieqi-colors.json',
+        url: 'https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/color/jieqi-colors-simple.json',
         dataType: 'json',
         async: false,
         success: function (jieqiList) {
             $('#jieqiList').empty()
             $.each(jieqiList, function (index, jieqi) {
-                console.log(jieqi)
-                $('#jieqiList').append(`<p>${jieqi.number} ${jieqi.jieqi}</p>`)
                 $.each(jieqi.colors, function (index, color) {
                     let colorRaw = JSON.stringify(color).replace(/\"/g,"'")
-                    $('#jieqiList').append(`<span onclick="changeColor(${colorRaw})" style="color: ${color.hex}; background-color: currentColor"><span style="filter: grayscale(1) contrast(999) invert(1);">${color.name} ${color.pinyin}</span></span><br>`)
+                    $('#jieqiGrid').append(`<div class="mdui-col mdui-m-a-0 mdui-p-a-0">
+                                                <span class="mdui-card" onclick="changeColor(${colorRaw})">
+                                                  <div class="mdui-card-media font-bg mdui-float-left" style="width: 100%; height: 200px; color: ${color.hex}">
+                                                    <!--<img src="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png"/>-->
+                                                    <div class="mdui-card-media-covered mdui-card-media-covered-transparent">
+                                                      <div class="mdui-card-primary font-bg" style="color: ${color.hex};">
+                                                        <span class="mdui-card-primary-title font">${color.name}</span>
+                                                        <span class="mdui-card-primary-subtitle font">${color.pinyin}</span>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </span>
+                                              </div>`)
                 })
             })
         }
