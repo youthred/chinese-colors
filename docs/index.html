@@ -16,7 +16,7 @@
         }
 
         body {
-            font-family: 'QingNiaoHuaGuangLiBian', sans-serif;
+            font-family: KaiTi, sans-serif;
             font-size: larger;
             background-image: url("https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png");
             background-size: 100px;
@@ -46,7 +46,7 @@
                 $('#jieqiList').append(`<p>${jieqi.number} ${jieqi.jieqi}</p>`)
                 $.each(jieqi.colors, function (index, color) {
                     let colorRaw = JSON.stringify(color).replace(/\"/g,"'")
-                    $('#jieqiList').append(`<span onclick="changeColor(${colorRaw})" style="color: ${color.hex}; background-color: currentColor"><span style="filter: grayscale(1) contrast(999) invert(1);">${color.name} ${color.pinyin}</span></span>`)
+                    $('#jieqiList').append(`<span onclick="changeColor(${colorRaw})" style="color: ${color.hex}; background-color: currentColor"><span style="filter: grayscale(1) contrast(999) invert(1);">${color.name} ${color.pinyin}</span></span><br>`)
                 })
             })
         }
