@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>x</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/mdui-v1.0.2/css/mdui.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/mdui-v1.0.2/js/mdui.min.js"></script>
+    <script type="text/javascript">
+        let $ = mdui.$
+    </script>
     <style>
         .box {
             width: 200px;
@@ -15,12 +20,17 @@
             -o-transition: background-color .5s;
         }
 
-        .box:hover {
-            background-color: purple;
-        }
+        /*.box:hover {*/
+        /*    background-color: purple;*/
+        /*}*/
     </style>
 </head>
 <body>
-<div class="box"></div>
+<div class="box" onclick="x()"></div>
+<script type="text/javascript">
+    function x() {
+        $('.box').css('background-color', 'purple')
+    }
+</script>
 </body>
 </html>
