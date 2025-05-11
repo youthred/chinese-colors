@@ -1,187 +1,26 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=5.0">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
-    <title>好色之徒</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/mdui-v1.0.2/css/mdui.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/mdui-v1.0.2/js/mdui.min.js"></script>
-    <script type="text/javascript">
-        let $ = mdui.$
-    </script>
+    <title>x</title>
     <style>
-        /*@font-face {*/
-        /*    font-family: 'QingNiaoHuaGuangLiBian';*/
-        /*    src: url('https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/font/QingNiaoHuaGuangLiBian.ttf') format('truetype');*/
-        /*}*/
-        @font-face {
-            font-family: 'kai';
-            src: url('https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/font/simkai.ttf') format('truetype');
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #00B0FF;
+            transition: background-color .5s;
+            -webkit-transition: background-color .5s;
+            -moz-transition: background-color .5s;
+            -ms-transition: background-color .5s;
+            -o-transition: background-color .5s;
         }
 
-        body {
-            font-family: KaiTi, kai, sans-serif;
-            /*font-weight: bold;*/
-            /*font-size: larger;*/
-            background-image: url("https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png");
-            background-size: 100px;
-            background-repeat: repeat;
-            transition: background-color 1s ease-out, transform 1s;
-            -webkit-transition: background-color 1s ease-in, -webkit-transform 1s;
-            -moz-transition: background-color 1s ease-in, -moz-transform 1s;
-            -ms-transition: background-color 1s ease-in, -ms-transform 1s;
-            -o-transition: background-color 1s ease-in, -o-transform 1s;
-        }
-
-        .color-grid-pinyin {
-            font-family: "Microsoft Yahei", sans-serif;
-            /*font-style: italic;*/
-            /*font-weight: bold;*/
-        }
-
-        .font-bg {
-            background-image: url("https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png");
-            background-color: currentColor;
-        }
-
-        .font-bg-fontcolor {
-            filter: grayscale(1) contrast(999) invert(1);
-        }
-
-        .font-size-32px {
-            font-size: 32px;
-        }
-
-        .inline-block {
-            display: inline-block;
-        }
-
-        .block {
-            display: block;
-        }
-
-        .fixed-right-top {
-            position:fixed !important;
-            right:16px; top:16px
-        }
-
-        .word-bigscreen {
-            writing-mode: vertical-rl;
-            color: white;
+        .box:hover {
+            background-color: purple;
         }
     </style>
 </head>
 <body>
-
-<div id="jieqiList"></div>
-
-<div class="mdui-row">
-    <div class="mdui-col-xs-6">
-        <div id="jieqiGrid" class="mdui-row-xs-2 mdui-row-sm-4 mdui-row-md-4 mdui-row-lg-8 mdui-row-xl-8 mdui-grid-list mdui-row-gapless"></div>
-    </div>
-    <div class="mdui-col-xs-6">
-        <div class="fixed-right-top">
-            <div class="word-bigscreen font-bg-fontcolor" style="margin-top: 36px">
-                <p id="wordBigscreenJieqi" class="mdui-typo-display-3-opacity">节气</p>
-                <p id="wordBigscreenColorname" class="mdui-typo-display-4">色彩</p>
-            </div>
-        </div>
-        <div class="mdui-fab-fixed">
-            <iframe src="https://ghbtns.com/github-btn.html?user=youthred&repo=chinese-colors&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">
-    // $.ajax({
-    //     method: 'GET',
-    //     // https://cdn.jsdelivr.net/gh/${owner}/${repo}@${branch}${path}
-    //     url: 'https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/color/jieqi-colors-simple.json',
-    //     dataType: 'json',
-    //     async: false,
-    //     success: function (jieqiList) {
-    //         $('#jieqiList').empty()
-    //         $.each(jieqiList, function (index, jieqi) {
-    //             console.log(jieqi)
-    //             $('#jieqiList').append(`<p class="block">${jieqi.number} ${jieqi.jieqi}</p>`)
-    //             $.each(jieqi.colors, function (index, color) {
-    //                 let colorRaw = JSON.stringify(color).replace(/\"/g,"'")
-    //                 // $('#jieqiList').append(`<span onclick="changeColor(${colorRaw})" class="font-bg" style="color: ${color.hex};"><span class="font">${color.name} ${color.pinyin}</span></span><br>`)
-    //                 $('#jieqiList').append(`<span class="mdui-card" onclick="changeColor(${colorRaw})">
-    //                                           <div class="mdui-card-media font-bg mdui-float-left" style="width: 200px; height: 200px; color: ${color.hex}">
-    //                                             <!--<img src="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png"/>-->
-    //                                             <div class="mdui-card-media-covered mdui-card-media-covered-transparent">
-    //                                               <div class="mdui-card-primary font-bg" style="color: ${color.hex};">
-    //                                                 <span class="mdui-card-primary-title font">${color.name}</span>
-    //                                                 <span class="mdui-card-primary-subtitle font">${color.pinyin}</span>
-    //                                               </div>
-    //                                             </div>
-    //                                           </div>
-    //                                         </span>`)
-    //             })
-    //             $('#jieqiList').append('<br>')
-    //         })
-    //     }
-    // })
-
-    $.ajax({
-        method: 'GET',
-        // https://cdn.jsdelivr.net/gh/${owner}/${repo}@${branch}${path}
-        url: 'https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/color/jieqi-colors-simple.json',
-        dataType: 'json',
-        async: false,
-        success: function (jieqiList) {
-            $('#jieqiList').empty()
-            $.each(jieqiList, function (index, jieqi) {
-                $.each(jieqi.colors, function (index, color) {
-                    let colorRaw = JSON.stringify(color).replace(/\"/g,"'")
-                    $('#jieqiGrid').append(`<div class="mdui-col mdui-m-a-0 mdui-p-a-0">
-                                                <div class="mdui-grid-tile mdui-m-a-0 mdui-p-a-0" onclick="changeColor('${jieqi.jieqi}', ${colorRaw})">
-                                                  <div class="mdui-card-media font-bg" style="width: 100%; height: 200px; color: ${color.hex}">
-                                                    <!--<img src="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png"/>-->
-                                                    <div class="mdui-card-media-covered mdui-card-media-covered-top">
-                                                      <div class="mdui-card-primary">
-                                                        <div class="mdui-card-primary-title" style="color: ${color.hex};">${jieqi.jieqi}</div>
-                                                        <!--<div class="mdui-card-primary-subtitle">Subtitle</div>-->
-                                                      </div>
-                                                    </div>
-                                                    <div class="mdui-card-media-covered mdui-card-media-covered-transparent">
-                                                      <div class="mdui-card-primary font-bg" style="color: ${color.hex};">
-                                                        <div class="mdui-card-primary-title font-bg-fontcolor">${color.name}</div>
-                                                        <div class="mdui-card-primary-subtitle font-bg-fontcolor color-grid-pinyin">${color.pinyin}</div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>`)
-                    // $('#jieqiGrid').append(`<div class="mdui-col mdui-m-a-0 mdui-p-a-0" onclick="changeColor(${colorRaw})">
-                    //                             <div class="mdui-grid-tile mdui-m-a-0 mdui-p-a-0 font-bg mdui-float-left" style="width: 100%; height: 200px; color: ${color.hex}">
-                    //                                 <!--<img src="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png"/>-->
-                    //                               <div class="mdui-grid-tile-actions mdui-grid-tile-actions-top">
-                    //                                 <div class="mdui-grid-tile-text">
-                    //                                   <div class="mdui-grid-tile-title font-size-32px" style="color: ${color.hex};">${jieqi.jieqi}</div>
-                    //                                 </div>
-                    //                               </div>
-                    //                               <div class="mdui-grid-tile-actions mdui-grid-tile-actions-transparent">
-                    //                                 <div class="mdui-grid-tile-text">
-                    //                                   <div class="mdui-grid-tile-title font-bg-fontcolor font-size-32px">${color.name}</div>
-                    //                                   <div class="mdui-grid-tile-subtitle font-bg-fontcolor color-grid-pinyin">${color.pinyin}</div>
-                    //                                 </div>
-                    //                               </div>
-                    //                             </div>
-                    //                           </div>`)
-                })
-            })
-        }
-    })
-
-    function changeColor(jieqiname, color) {
-        $('#wordBigscreenJieqi').text(jieqiname)
-        $('#wordBigscreenColorname').text(color.name)
-        $('body').css('background-color', color.hex)
-        $('.word-bigscreen').css('color', color.hex)
-    }
-</script>
+<div class="box"></div>
 </body>
 </html>
