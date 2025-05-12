@@ -31,11 +31,11 @@
             /*font-size: larger;*/
             background-image: url("https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png");
             background-repeat: repeat;
-            transition: all .5s ease-in, transform .5s;
-            -webkit-transition: all .5s ease-in, -webkit-transform .5s; /*如果作用在body上，则在移动端是不生效的，搞不懂啊*/
-            -moz-transition: all .5s ease-in, -moz-transform .5s;
-            -ms-transition: all .5s ease-in, -ms-transform .5s;
-            -o-transition: all .5s ease-in, -o-transform .5s;
+            transition: all .5s ease-in;
+            -webkit-transition: all .5s ease-in; /*如果作用在body上，则在移动端是不生效的，搞不懂啊*/
+            -moz-transition: all .5s ease-in;
+            -ms-transition: all .5s ease-in;
+            -o-transition: all .5s ease-in;
         }
 
         .color-grid-pinyin {
@@ -52,10 +52,6 @@
         .font-bg-fontcolor {
             filter: grayscale(1) contrast(999) invert(1);
             word-wrap: break-word;
-        }
-
-        .font-size-32px {
-            font-size: 32px;
         }
 
         .inline-block {
@@ -84,6 +80,64 @@
             transform: scale(0.9);
             /*z-index: 999;*/
         }
+
+        /*#wordBigscreenColorname:hover,#wordBigscreenJieqi:hover {*/
+        /*    animation: fade-out 2s;*/
+        /*}*/
+
+        @keyframes fade-out {
+            0% {
+                opacity: .1;
+                -moz-opacity: .1;
+            }
+            10% {
+                opacity: .1;
+                -moz-opacity: .1;
+            }
+            20% {
+                opacity: .2;
+                -moz-opacity: .2;
+            }
+            30% {
+                opacity: .3;
+                -moz-opacity: .3;
+            }
+            40% {
+                opacity: .4;
+                -moz-opacity: .4;
+            }
+            50% {
+                opacity: .5;
+                -moz-opacity: .5;
+            }
+            60% {
+                opacity: .6;
+                -moz-opacity: .6;
+            }
+            70% {
+                opacity: .7;
+                -moz-opacity: .7;
+            }
+            80% {
+                opacity: .8;
+                -moz-opacity: .8;
+            }
+            90% {
+                opacity: .9;
+                -moz-opacity: .9;
+            }
+            100% {
+                opacity: 1;
+                -moz-opacity: 1;
+            }
+        }
+
+        .anime-fade-out {
+            animation: fade-out 2s;
+            -webkit-animation: fade-out 2s;
+            -moz-animation: fade-out 2s;
+            -o-animation: fade-out 2s;
+        }
     </style>
 </head>
 <body>
@@ -101,8 +155,8 @@
             <div class="fixed-right-top">
                 <div class="word-bigscreen font-bg-fontcolor" style="margin-top: 36px">
                     <p>
-                        <span id="wordBigscreenColorname" class="mdui-typo-display-4">色彩</span>
-                        <span id="wordBigscreenJieqi" class="mdui-typo-display-3-opacity mdui-m-t-5">节气</span>
+                        <span id="wordBigscreenColorname" class="mdui-typo-display-4" style="animation-delay: 0s;">色彩</span>
+                        <span id="wordBigscreenJieqi" class="mdui-typo-display-3-opacity mdui-m-t-5" style="animation-delay: 0.1s;">节气</span>
                     </p>
                 </div>
             </div>

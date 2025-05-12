@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>x</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/mdui-v1.0.2/css/mdui.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/mdui-v1.0.2/js/mdui.min.js"></script>
+    <script type="text/javascript">
+        let $ = mdui.$
+    </script>
+    <style>
+        body {
+            display: flex; /* 使内容居中 */
+            flex-direction: column; /* 设置主轴为列 */
+            align-items: center; /* 水平居中 */
+            justify-content: center; /* 垂直居中 */
+            height: 100vh; /* 让body占满全屏高度 */
+            background-color: #f0f0f0; /* 背景色 */
+        }
+
+        #animated-text {
+            font-size: 40px; /* 字体大小 */
+            color: #333; /* 字体颜色 */
+            transition: color 1s ease; /* 定义颜色的过渡效果，持续1秒 */
+        }
+
+        #animated-text {
+            /*color: #ff4500; !* 点击后字体颜色变化为橘红色 *!*/
+        }
+
+        /*@keyframes bounce {*/
+        /*    0%, 20%, 50%, 80%, 100% {*/
+        /*        transform: translateY(0); !* 当前位置 *!*/
+        /*    }*/
+        /*    40% {*/
+        /*        transform: translateY(-30px); !* 提升30px，产生跳动效果 *!*/
+        /*    }*/
+        /*    60% {*/
+        /*        transform: translateY(-15px); !* 提升15px *!*/
+        /*    }*/
+        /*}*/
+
+        /**
+        淡入淡出
+         */
+        @keyframes fade-in-out {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade-out {
+            0% {
+                opacity: .1;
+                -moz-opacity: .1;
+            }
+            10% {
+                opacity: .1;
+                -moz-opacity: .1;
+            }
+            20% {
+                opacity: .2;
+                -moz-opacity: .2;
+            }
+            30% {
+                opacity: .3;
+                -moz-opacity: .3;
+            }
+            40% {
+                opacity: .4;
+                -moz-opacity: .4;
+            }
+            50% {
+                opacity: .5;
+                -moz-opacity: .5;
+            }
+            60% {
+                opacity: .6;
+                -moz-opacity: .6;
+            }
+            70% {
+                opacity: .7;
+                -moz-opacity: .7;
+            }
+            80% {
+                opacity: .8;
+                -moz-opacity: .8;
+            }
+            90% {
+                opacity: .9;
+                -moz-opacity: .9;
+            }
+            100% {
+                opacity: 1;
+                -moz-opacity: 1;
+            }
+        }
+
+        #animated-text:hover {
+            animation: fade-out 3s; /* 绑定动画，持续1秒 */
+        }
+    </style>
+</head>
+<body>
+<p id="animated-text">
+    <span style="animation-delay: 0s">123465</span>
+    <span style="animation-delay: 2s">78945612</span>
+    <span>123465</span>
+</p>
+<button id="animate-button">xxx</button>
+<script type="text/javascript">
+    // document.getElementById('animate-button').addEventListener('click', function () {
+    //     const text = document.getElementById('animated-text');
+    //     text.classList.toggle('animate'); /* 切换animate类来触发动画 */
+    //     text.classList.toggle('animate'); /* 切换animate类来触发动画 */
+    // });
+</script>
+</body>
+</html>
