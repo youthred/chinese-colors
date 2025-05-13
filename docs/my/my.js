@@ -87,7 +87,7 @@ function changeColor(jieqiname, color) {
     $('#wordBigscreenJieqi').text(jieqiname)
 
     // 重新播放动画 https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Animations_API/Tips
-    document.querySelector(".word-bigscreen").animate({opacity: [0, 1]}, 5000)
+    document.querySelector(".word-bigscreen").animate({opacity: [0, 1], '-moz-opacity': [0, 1]}, 5000)
 }
 
 function colorGridMouseover(jieqiname, color) {
