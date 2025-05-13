@@ -1,7 +1,7 @@
 @keyframes fade-out {
     0% {
-        opacity: .1;
-        -moz-opacity: .1;
+        opacity: 0;
+        -moz-opacity: 0;
     }
     10% {
         opacity: .1;
@@ -38,6 +38,17 @@
     90% {
         opacity: .9;
         -moz-opacity: .9;
+    }
+    100% {
+        opacity: 1;
+        -moz-opacity: 1;
+    }
+}
+
+@keyframes fade-out2 {
+    0% {
+        opacity: 0;
+        -moz-opacity: 0;
     }
     100% {
         opacity: 1;
@@ -117,7 +128,7 @@ body::-webkit-scrollbar {
 /*}*/
 
 .anime-fade-out {
-    animation: fade-out 2s;
+    animation: fade-out2 2s;
     -webkit-animation: fade-out 2s;
     -moz-animation: fade-out 2s;
     -o-animation: fade-out 2s;
