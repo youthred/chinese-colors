@@ -1,0 +1,124 @@
+@keyframes fade-out {
+    0% {
+        opacity: .1;
+        -moz-opacity: .1;
+    }
+    10% {
+        opacity: .1;
+        -moz-opacity: .1;
+    }
+    20% {
+        opacity: .2;
+        -moz-opacity: .2;
+    }
+    30% {
+        opacity: .3;
+        -moz-opacity: .3;
+    }
+    40% {
+        opacity: .4;
+        -moz-opacity: .4;
+    }
+    50% {
+        opacity: .5;
+        -moz-opacity: .5;
+    }
+    60% {
+        opacity: .6;
+        -moz-opacity: .6;
+    }
+    70% {
+        opacity: .7;
+        -moz-opacity: .7;
+    }
+    80% {
+        opacity: .8;
+        -moz-opacity: .8;
+    }
+    90% {
+        opacity: .9;
+        -moz-opacity: .9;
+    }
+    100% {
+        opacity: 1;
+        -moz-opacity: 1;
+    }
+}
+
+@font-face {
+    font-family: 'kai';
+    src: url('https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/font/simkai.ttf') format('truetype');
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    font-family: KaiTi, kai, sans-serif;
+    /*font-weight: bold;*/
+    /*font-size: larger;*/
+    background-image: url("https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png");
+    background-repeat: repeat;
+    transition: all .5s ease-in;
+    -webkit-transition: all .5s ease-in; /*如果作用在body上，则在移动端是不生效的，搞不懂啊*/
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
+}
+
+.color-grid-pinyin {
+    font-family: "Microsoft Yahei", sans-serif;
+    /*font-style: italic;*/
+    /*font-weight: bold;*/
+}
+
+.font-bg {
+    background-image: url("https://cdn.jsdelivr.net/gh/youthred/chinese-colors@master/resources/pic/texture.png");
+    background-color: currentColor;
+}
+
+.font-bg-fontcolor {
+    filter: grayscale(1) contrast(999) invert(1);
+    word-wrap: break-word;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
+.fixed-right-top {
+    position: fixed !important;
+    right: 16px;
+    top: 16px
+}
+
+.word-bigscreen {
+    writing-mode: vertical-rl;
+    color: white;
+}
+
+.mdui-grid-tile {
+    transition: all .2s;
+}
+
+.mdui-grid-tile:hover {
+    transform: scale(0.9);
+    /*z-index: 999;*/
+}
+
+/*#wordBigscreenColorname:hover,#wordBigscreenJieqi:hover {*/
+/*    animation: fade-out 2s;*/
+/*}*/
+
+.anime-fade-out {
+    animation: fade-out 2s;
+    -webkit-animation: fade-out 2s;
+    -moz-animation: fade-out 2s;
+    -o-animation: fade-out 2s;
+}
