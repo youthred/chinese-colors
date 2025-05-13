@@ -81,10 +81,13 @@ $.ajax({
 })
 
 function changeColor(jieqiname, color) {
-    $('#wordBigscreenJieqi').text(jieqiname)
-    $('#wordBigscreenColorname').text(color.name)
     $('.container').css('background-color', color.hex)
     $('.word-bigscreen').css('color', color.hex)
+    $('#wordBigscreenColorname').text(color.name)
+    $('#wordBigscreenJieqi').text(jieqiname)
+
+    // 重新播放动画 https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Animations_API/Tips
+    document.querySelector(".word-bigscreen").animate({opacity: [0, 1]}, 5000)
 }
 
 function colorGridMouseover(jieqiname, color) {

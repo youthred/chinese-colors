@@ -3,56 +3,20 @@
         opacity: 0;
         -moz-opacity: 0;
     }
-    10% {
-        opacity: .1;
-        -moz-opacity: .1;
-    }
-    20% {
-        opacity: .2;
-        -moz-opacity: .2;
-    }
-    30% {
-        opacity: .3;
-        -moz-opacity: .3;
-    }
-    40% {
-        opacity: .4;
-        -moz-opacity: .4;
-    }
-    50% {
-        opacity: .5;
-        -moz-opacity: .5;
-    }
-    60% {
-        opacity: .6;
-        -moz-opacity: .6;
-    }
-    70% {
-        opacity: .7;
-        -moz-opacity: .7;
-    }
-    80% {
-        opacity: .8;
-        -moz-opacity: .8;
-    }
-    90% {
-        opacity: .9;
-        -moz-opacity: .9;
-    }
     100% {
         opacity: 1;
         -moz-opacity: 1;
     }
 }
 
-@keyframes fade-out2 {
+@keyframes fade-in{
     0% {
-        opacity: 0;
-        -moz-opacity: 0;
-    }
-    100% {
         opacity: 1;
         -moz-opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -moz-opacity: 0;
     }
 }
 
@@ -128,8 +92,15 @@ body::-webkit-scrollbar {
 /*}*/
 
 .anime-fade-out {
-    animation: fade-out2 2s;
-    -webkit-animation: fade-out 2s;
-    -moz-animation: fade-out 2s;
-    -o-animation: fade-out 2s;
+    animation: fade-out 5s;
+    -webkit-animation: fade-out 5s;
+    -moz-animation: fade-out 5s;
+    -o-animation: fade-out 5s;
+}
+
+.anime-fade-in {
+    animation: fade-in 5s;
+    -webkit-animation: fade-in 5s;
+    -moz-animation: fade-in 5s;
+    -o-animation: fade-in 5s;
 }
